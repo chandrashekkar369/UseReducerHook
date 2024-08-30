@@ -6,21 +6,21 @@ const initialState = {
   toggleTextFlag: false,
 };
 
-const SHOW_TEXT = "SHOW_TEXT";
 const HIDE_TEXT = "HIDE_TEXT";
+const SHOW_TEXT = "SHOIW_TEXT";
 const TOGGLE_TEXT_STYLE = "TOGGLE_TEXT_STYLE";
 
 const reducer = (state, action) => {
   switch (action.type) {
-    case SHOW_TEXT:
-      return {
-        ...state,
-        hideTextFlag: false,
-      };
     case HIDE_TEXT:
       return {
         ...state,
         hideTextFlag: true,
+      };
+    case SHOW_TEXT:
+      return {
+        ...state,
+        hideTextFlag: false,
       };
     case TOGGLE_TEXT_STYLE:
       return {
@@ -39,22 +39,28 @@ export default function UseReducerHookExample() {
   console.log(state);
   return (
     <div>
-      <h1>useReducerHook Learning</h1>
+      <h1>useReducer Hook Learning</h1>
       {!state.hideTextFlag && (
         <p
           style={{
-            backgroundColor: state.toggleTextFlag === true ? "black" : "white",
-            color: state.toggleTextFlag === true ? "white" : "black",
+            backgroundColor:
+              state.toggleTextFlag === true
+                ? "#242424"
+                : "rgba(255, 255, 255, 0.57)",
+            color:
+              state.toggleTextFlag === true
+                ? "rgba(255, 255, 255, 0.57)"
+                : "#242424",
           }}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit alias
-          dolorum laboriosam architecto itaque labore voluptatum fugit ea
-          officia porro totam iusto quasi quo, excepturi eligendi facere
-          doloremque sequi ipsum!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Et fugiat
+          ipsam, blanditiis nemo officiis doloremque iusto voluptatum distinctio
+          nesciunt adipisci. Quod ratione placeat sed nemo deleniti aut dolorum
+          aperiam eveniet.
         </p>
       )}
-      <button onClick={() => dispatch({ type: SHOW_TEXT })}>Show Text</button>
       <button onClick={() => dispatch({ type: HIDE_TEXT })}>Hide Text</button>
+      <button onClick={() => dispatch({ type: SHOW_TEXT })}>Show Text</button>
       <button onClick={() => dispatch({ type: TOGGLE_TEXT_STYLE })}>
         Toggle Text Style
       </button>
